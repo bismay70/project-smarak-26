@@ -5,8 +5,6 @@ import Image from 'next/image'
 const Footer = () => {
     return (
         <section className="relative w-full bg-[url('/images/bg.png')] bg-cover bg-center overflow-hidden">
-
-            {/* Optional light overlay */}
             <div className="absolute inset-0 bg-[#f5e6cc]/5"></div>
 
             <div className="relative z-20 py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
@@ -29,49 +27,57 @@ const Footer = () => {
 
             </div>
 
-            <div className="relative z-20 bg-[#5a5a5a]/90 py-16">
-                <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-center text-white">
+            <div className="relative z-20 bg-[#5a5a5a]/95 backdrop-blur-md text-white mt-8">
 
-                    <div>
-                        <h4 className="text-[#f5b461] font-saman text-5xl mb-3">
-                            address
-                        </h4>
-                        <p className="font-saman text-base leading-relaxed">
-                            national institute of technology rourkela<br />
-                            odisha, india, 769008
-                        </p>
-                    </div>
+                <div className="max-w-[1900px] mx-auto px-8 sm:px-16 lg:px-28 xl:px-40 py-14 sm:py-16 lg:py-14">
 
-                    <div className="text-center">
-                        <div className="w-28 h-28 mx-auto mb-3">
+                    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-12 md:gap-20 lg:gap-28 xl:gap-36 items-start">
+
+                        <div className="text-center md:text-left space-y-5">
+                            <h4 className="text-[#f5b461] font-saman text-3xl sm:text-4xl lg:text-5xl tracking-wide">
+                                Address
+                            </h4>
+                            <p className="font-saman text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200">
+                                National Institute of Technology Rourkela <br />
+                                Odisha, India - 769008
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-center justify-start text-center space-y-5 md:min-w-[200px]">
                             <Image
                                 src="/images/nit-logo.png"
                                 alt="NIT Logo"
-                                width={128}
-                                height={128}
+                                width={130}
+                                height={130}
                                 className="object-contain"
                             />
+                            <p className="font-saman text-sm sm:text-base lg:text-lg text-gray-300 tracking-wide px-4">
+                                © 2026 CEST Club, NITR. All rights reserved.
+                            </p>
                         </div>
-                        <p className="font-saman text-sm">
-                            © copyright 2026 cest club, nitr. all rights reserved.
-                        </p>
-                    </div>
 
-                    <div className="text-right">
-                        <h4 className="text-[#f5b461] font-saman text-5xl mb-3">
-                            contact us
-                        </h4>
-                        <div className="font-saman text-base leading-relaxed">
-                            <p>join our whatsapp channel</p>
-                            <p>smarakhnitrourkela@gmail.com</p>
-                            <p>9938380312</p>
-                            <p>9078810869</p>
+                        <div className="text-center md:text-right space-y-5">
+                            <h4 className="text-[#f5b461] font-saman text-3xl sm:text-4xl lg:text-5xl tracking-wide">
+                                Contact Us
+                            </h4>
+                            <div className="font-saman text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200 space-y-2">
+                                <p>Join our WhatsApp Channel</p>
+                                <p>smarakhnitrourkela@gmail.com</p>
+                                <p>+91 99383 80312</p>
+                                <p>+91 90788 10869</p>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
-            </div>
 
+                <div className="border-t border-white/20 py-5 sm:py-6 text-center px-4">
+                    <p className="font-saman text-sm sm:text-base lg:text-lg text-white tracking-wide">
+                        Made with ❤️ by Team Webwiz
+                    </p>
+                </div>
+            </div>
         </section>
     )
 }
