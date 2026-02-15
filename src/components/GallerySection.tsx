@@ -36,7 +36,7 @@ export default function GallerySection() {
                         {galleryImages.map((img: string, i: number) => (
                             <div
                                 key={i}
-                                className="relative mx-4 h-[200px] w-[20px] md:mx-8  md:h-[340px] md:w-[350px] xl:w-[408px] xl:h-[390px] flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-[10px] md:border-[23px] border-[#F6A440] bg-[#F6A440] shadow-2xl transition-all duration-300 hover:z-50 hover:-translate-y-4 hover:scale-110"
+                                className="relative mx-4 h-[200px] w-[217px] md:mx-8  md:h-[340px] md:w-[350px] xl:w-[408px] xl:h-[390px] flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-[10px] md:border-[23px] border-[#F6A440] bg-[#F6A440] shadow-2xl transition-all duration-300 hover:z-50 hover:-translate-y-4 hover:scale-110"
                             >
                                 <div className="relative h-full w-full rounded-sm border-[1px] border-[#1e1e1e]">
                                     <Image
