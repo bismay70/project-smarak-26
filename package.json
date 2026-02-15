@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,9 +10,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.34.0",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-fast-marquee": "^1.6.5"
   },
   "devDependencies": {
     "@types/node": "25.2.0",
