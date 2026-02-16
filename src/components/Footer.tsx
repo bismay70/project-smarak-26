@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import { footerCards } from "../config/contact";
 
@@ -15,31 +16,42 @@ const Footer = () => {
 
       {/* Top Cards */}
       <div className="relative z-20 py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-        {footerCards.map((card) => (
-          <div
-            key={card.id}
-            className="rounded-3xl overflow-hidden shadow-lg border-[6px] border-[#f5b461]"
-          >
-            {/* Image */}
-            <div className="relative h-56">
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 " />
-            </div>
+        {footerCards.map((card) => {
+          const CardContent = (
+            <div className="rounded-3xl overflow-hidden shadow-lg border-[6px] border-[#f5b461] hover:scale-105 transition-transform cursor-pointer">
+              {/* Image */}
+              <div className="relative h-56">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
 
-            {/* Title */}
-            <div className="bg-gradient-to-b from-[#f5b461] to-[#e8a047] py-4">
-              <h3 className="text-center text-[#7a1a0f] font-serif text-3xl tracking-wide">
-                {card.title}
-              </h3>
+              {/* Title */}
+              <div className="bg-gradient-to-b from-[#f5b461] to-[#e8a047] py-4">
+                <h3 className="text-center text-[#7a1a0f] font-serif text-3xl tracking-wide">
+                  {card.title}
+                </h3>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+
+          return card.link ? (
+            <Link
+              key={card.id}
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {CardContent}
+            </Link>
+          ) : (
+            <div key={card.id}>{CardContent}</div>
+          );
+        })}
       </div>
 
       {/* Bottom Section */}
