@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import { Poppins } from 'next/font/google';
-import Slider from "@/componets/slider"
+import Slider from "@/components/slider"
+
 const poppins = Poppins({ 
   subsets: ['latin'],
   weight: ['400', '500', '600', '700']
