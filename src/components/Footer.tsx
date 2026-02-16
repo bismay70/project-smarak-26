@@ -4,8 +4,10 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <div id="contact">
-        <section className="relative w-full bg-[url('/images/bg.png')] bg-cover bg-center overflow-hidden">
+        <footer
+            className="relative w-full bg-[url('/images/bg.png')] bg-cover bg-center overflow-hidden"
+            id="contact"
+        >
             <div className="absolute inset-0 bg-[#f5e6cc]/5"></div>
 
             <div className="relative z-20 py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
@@ -77,7 +79,7 @@ const Footer = () => {
                     </p>
                 </div>
             </div>
-        </section>
+        </footer>
     );
 };
 

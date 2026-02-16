@@ -1,7 +1,13 @@
+import { EventsGrid, EventsHero } from "@/components/events/index";
 import Slider from "@/components/slider";
-import { EventsHero, EventsGrid, Event } from "@/components/events";
 
-const events: Event[] = [
+interface EventItem {
+    id: number;
+    title: string;
+    description: string;
+}
+
+const events: EventItem[] = [
     {
         id: 1,
         title: "स्पर्धा",
@@ -40,7 +46,7 @@ const events: Event[] = [
     },
 ];
 
-const workshops: Event[] = [
+const workshops: EventItem[] = [
     {
         id: 1,
         title: "STAAD Pro & Revit Workshop",

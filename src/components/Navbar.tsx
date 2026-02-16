@@ -3,15 +3,28 @@
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const poppins = Poppins({
     subsets: ["latin"],
     weight: ["400", "500", "600"],
 });
 
+const navLinks = [
+    { href: "/#about", label: "About Us" },
+    { href: "/events", label: "Events" },
+    { href: "/#gallery", label: "Gallery" },
+    { href: "/teams", label: "Teams" },
+    { href: "/#contact", label: "Contact Us" },
+];
+
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    function handleRegister() {
+        if (isMenuOpen) setIsMenuOpen(false);
+        toast("Starting Soon..");
+        return;
+    }
     return (
         <nav className="bg-[#980204] sticky top-0 z-50">
             <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -32,45 +45,24 @@ export default function Navbar() {
                         <div
                             className={`hidden lg:flex items-center space-x-6 xl:space-x-8 ${poppins.className}`}
                         >
-                            <Link
-                                href="/about"
-                                className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base whitespace-nowrap"
-                            >
-                                About Us
-                            </Link>
-                            <Link
-                                href="/events"
-                                className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base"
-                            >
-                                Events
-                            </Link>
-                            <Link
-                                href="/gallery"
-                                className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base"
-                            >
-                                Gallery
-                            </Link>
-                            <Link
-                                href="/teams"
-                                className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base"
-                            >
-                                Teams
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base whitespace-nowrap"
-                            >
-                                Contact Us
-                            </Link>
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base whitespace-nowrap"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
                         </div>
 
                         <div className={`hidden lg:block ${poppins.className}`}>
-                            <Link
-                                href="/signin"
+                            <button
                                 className="border-2 border-[#F5DEB3] text-[#F5DEB3] hover:bg-[#F5DEB3] hover:text-[#8B3333] px-5 xl:px-6 py-1.5 xl:py-2 rounded-full transition-all font-normal text-sm xl:text-base"
+                                onClick={() => handleRegister()}
                             >
-                                Sign in
-                            </Link>
+                                Register Now
+                            </button>
                         </div>
 
                         {/* Mobile menu button */}
@@ -103,7 +95,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 <div
-                    className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                    className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out pb-5 ${
                         isMenuOpen
                             ? "max-h-[500px] opacity-100"
                             : "max-h-0 opacity-0"
@@ -112,50 +104,25 @@ export default function Navbar() {
                     <div
                         className={`${poppins.className} py-4 space-y-2 border-t border-[#A64848]`}
                     >
-                        <Link
-                            href="/about"
-                            className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            About Us
-                        </Link>
-                        <Link
-                            href="/events"
-                            className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Events
-                        </Link>
-                        <Link
-                            href="/gallery"
-                            className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Gallery
-                        </Link>
-                        <Link
-                            href="/teams"
-                            className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Teams
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Contact Us
-                        </Link>
-                        <div className="pt-2 px-2">
+                        {navLinks.map((link) => (
                             <Link
-                                href="/signin"
-                                className="block border-2 border-[#F5DEB3] text-[#F5DEB3] hover:bg-[#F5DEB3] hover:text-[#8B3333] px-6 py-2.5 rounded-full transition-all duration-200 font-normal text-center"
+                                key={link.href}
+                                href={link.href}
+                                className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Sign in
+                                {link.label}
                             </Link>
-                        </div>
+                        ))}
+                    </div>
+
+                    <div className="pt-2 px-2">
+                        <button
+                            className="block border-2 border-[#F5DEB3] text-[#F5DEB3] hover:bg-[#F5DEB3] hover:text-[#8B3333] px-6 py-2.5 rounded-full transition-all duration-200 font-normal text-center w-full"
+                            onClick={() => handleRegister()}
+                        >
+                            Register Now
+                        </button>
                     </div>
                 </div>
             </div>
