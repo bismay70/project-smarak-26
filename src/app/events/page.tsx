@@ -48,34 +48,15 @@ export default function EventsPage() {
   const workshops = [
     {
       id: 1,
-      title: 'स्पर्धा',
-      description: 'Join us a thrematic team -based competition where participants will design and construct a structure bridge using specified materials.',
+      title: 'STAAD Pro & Revit Workshop',
+      description: 'In this training session participants will dive into modern 3D modelling, design automation, structural load analysis, and real-world engineering applications. The session empowers learners with industry-ready skills to analyse, optimize, and model building structures. ',
     },
     {
       id: 2,
-      title: 'स्पर्धा',
-      description: 'Join us a thrematic team -based competition where participants will design and construct a structure bridge using specified materials.',
+      title: 'BIS Seminar',
+      description: 'This seminar offers students in-depth exposure to the Bureau of Indian Standards (BIS) and its significance in civil engineering. It covers essential industrial parameters, regulatory guidelines, and compliance requirements for construction materials and daily-use products. By understanding these standards, students will develop a strong foundation in safety, quality control, and industry best practices.',
     },
-    {
-      id: 3,
-      title: 'स्पर्धा',
-      description: 'Join us a thrematic team -based competition where participants will design and construct a structure bridge using specified materials.',
-    },
-    {
-      id: 4,
-      title: 'स्पर्धा',
-      description: 'Join us a thrematic team -based competition where participants will design and construct a structure bridge using specified materials.',
-    },
-    {
-      id: 5,
-      title: 'स्पर्धा',
-      description: 'Join us a thrematic team -based competition where participants will design and construct a structure bridge using specified materials.',
-    },
-    {
-      id: 6,
-      title: 'स्पर्धा',
-      description: 'Join us a thrematic team -based competition where participants will design and construct a structure bridge using specified materials.',
-    },
+    
   ];
 
   const categories = [

@@ -143,7 +143,7 @@ export default function Navbar() {
             </Link>
             <div className="pt-2 px-2">
               <Link 
-                href="/signin"
+                href="/google.com"
                 className="block border-2 border-[#F5DEB3] text-[#F5DEB3] hover:bg-[#F5DEB3] hover:text-[#8B3333] px-6 py-2.5 rounded-full transition-all duration-200 font-normal text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
