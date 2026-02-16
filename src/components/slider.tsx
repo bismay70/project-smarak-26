@@ -12,7 +12,7 @@ const slider = () => {
                                 key={`first-${i}`}
                                 className="text-[#4a2c20] text-base sm:text-lg md:text-xl lg:text-3xl font-saman tracking-wider mx-4 sm:mx-8 md:mx-12"
                             >
-                                fusing innovation with a greener tomorrow
+                                Shaping Architecture Through Engineering Thought
                                 <span className="mx-4 sm:mx-8 md:mx-12 font-bold">||</span>
                             </span>
                         ))}
@@ -24,7 +24,7 @@ const slider = () => {
                                 key={`second-${i}`}
                                 className="text-[#4a2c20] text-base sm:text-lg md:text-xl lg:text-3xl font-saman tracking-wider mx-4 sm:mx-8 md:mx-12"
                             >
-                                fusing innovation with a greener tomorrow
+                                Shaping Architecture Through Engineering Thought
                                 <span className="mx-4 sm:mx-8 md:mx-12 font-bold">||</span>
                             </span>
                         ))}

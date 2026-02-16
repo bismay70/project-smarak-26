@@ -20,7 +20,7 @@ export default function Hero() {
                     </div>
 
                     <p className="text-xs sm:text-sm md:text-base lg:text-xl text-center text-[#733f35] mb-[1vh] px-4 font-serif font-medium tracking-wide max-w-2xl">
-                        "Fusing Innovation With a Greener Tomorrow"
+                        "Shaping Architecture Through Engineering Thought"
                     </p>
 
 
