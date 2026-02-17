@@ -10,6 +10,7 @@ export default function Home() {
             <Hero />
             <About />
             <Events />
+            <Slider />
             <MissionAnimation />
             <Slider />
             <GallerySection />

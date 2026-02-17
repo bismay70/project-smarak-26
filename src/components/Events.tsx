@@ -1,146 +1,85 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
 import { events } from "@/app/config/events";
-
-const SCALE_CENTER = 1.08;
-const SCALE_SIDE = 0.85;
-const OPACITY_CENTER = 1;
-const OPACITY_SIDE = 0.6;
+import EventCardItem from "./events/EventCardItem";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Events() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        {
+            loop: true,
+            align: "center",
+            containScroll: false,
+            slidesToScroll: 1,
+        },
+        [
+            Autoplay({
+                delay: 2000,
+                stopOnInteraction: true,
+                stopOnMouseEnter: true,
+            }),
+        ],
+    );
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "center",
-      containScroll: false,
-      skipSnaps: false,
-      dragFree: false,
-      slidesToScroll: 1,
-    },
-    [
-      Autoplay({
-        delay: 2000,
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-      }),
-    ],
-  );
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
 
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    onSelect();
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi, onSelect]);
+    return (
+        <section
+            className="relative w-full min-h-[65vh] md:min-h-screen overflow-x-hidden flex flex-col items-center justify-start gap-6 sm:gap-8 md:gap-12 pb-12 bg-cover bg-center bg-no-repeat py-20"
+            style={{ backgroundImage: "url('/images/events.png')" }}
+        >
+            <div className="absolute inset-0 bg-white/10 z-0"></div>
 
-  return (
-    <section
-      className="relative w-full min-h-[65vh] md:min-h-[75vw] lg:min-h-[90vh] overflow-x-hidden flex flex-col items-center justify-start gap-6 sm:gap-8 md:gap-12 pb-12 sm:bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/events.png')",
-      }}
-    >
-      {/* heading */}
-      <h1
-        className="font-saman text-red-800 mt-[4vw] text-6xl md:text-6xl lg:text-[6rem] mb-[4vw] md:mb-16 "
-        // style={{ fontSize: "clamp(2.5rem, 8vw, 9rem)", marginBottom: "2vh" }}
-      >
-        events
-      </h1>
+            <h1 className="font-saman text-6xl  lg:text-[6rem] xl:pt-16 font-light text-[#980204] font-samarkan tracking-wide drop-shadow-[4px_4px_0px_rgba(246,164,64,1)]">
+                Events
+            </h1>
 
-      {/* carousel — 1 card on mobile, 3 on desktop */}
-      <div className="w-full mx-auto " ref={emblaRef}>
-        <div className="flex">
-          {events.map((event, i) => {
-            const isCenter = i === selectedIndex;
-
-            return (
-              <div
-                key={i}
-                className="flex-[0_0_85%] sm:flex-[0_0_50%] md:flex-[0_0_45%] min-w-0 px-6 sm:px-[2.5vw] md:px-[5vw] xl:px-[8vw]"
-              >
-                <div
-                  className="origin-center transition-all duration-400 ease-in-out"
-                  style={{
-                    transform: `scale(${isCenter ? SCALE_CENTER : SCALE_SIDE})`,
-                    opacity: isCenter ? OPACITY_CENTER : OPACITY_SIDE,
-                  }}
+            <div className="relative w-full z-10">
+                {/* Left Arrow Button */}
+                <button
+                    onClick={scrollPrev}
+                    className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 bg-[#980204] hover:bg-[#7a0103] text-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#F6A440] focus:ring-offset-2"
+                    aria-label="Previous slide"
                 >
-                  <div
-                    className="bg-[#F6A440] shadow-2xl"
-                    style={{
-                      borderRadius: "clamp(1rem, 2vw, 1.5rem)",
-                      padding: "clamp(1.25rem, 2.5vw, 2rem)",
-                    }}
-                  >
-                    <div
-                      className="relative border bg-[#FBD4A8] rounded-xl overflow-hidden"
-                      style={{
-                        height: "clamp(12rem, 28vh, 18rem)",
-                        marginBottom: "clamp(1rem, 2vh, 1.5rem)",
-                      }}
-                    >
-                      <Image
-                        src={event.image}
-                        alt={event.title}
-                        fill
-                        sizes="(max-width: 640px) 85vw, (max-width: 768px) 50vw, 45vw"
-                        className="object-cover"
-                      />
+                    <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+                </button>
+
+                {/* Right Arrow Button */}
+                <button
+                    onClick={scrollNext}
+                    className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 bg-[#980204] hover:bg-[#7a0103] text-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#F6A440] focus:ring-offset-2"
+                    aria-label="Next slide"
+                >
+                    <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+                </button>
+
+                <div className="w-full mx-auto py-20 px-2" ref={emblaRef}>
+                    <div className="flex">
+                        {events.map((event, i) => (
+                            <div
+                                key={i}
+                                className="flex-[0_0_100%] lg:flex-[0_0_45%] min-w-0 px-4 lg:px-[5vw] xl:px-[8vw]"
+                            >
+                                <EventCardItem
+                                    id={event.id}
+                                    title={event.title}
+                                    description={event.description}
+                                    image={event.image}
+                                />
+                            </div>
+                        ))}
                     </div>
-
-                    <h2
-                      className="font-saman"
-                      style={{
-                        fontSize: "clamp(1.15rem, 2vw, 1.5rem)",
-                        marginBottom: "clamp(0.25rem, 0.5vh, 0.5rem)",
-                      }}
-                    >
-                      {event.title}
-                    </h2>
-
-                    <p
-                      className="leading-relaxed"
-                      style={{
-                        fontSize: "clamp(0.7rem, 1vw, 0.875rem)",
-                        marginBottom: "clamp(0.75rem, 1.5vh, 1rem)",
-                      }}
-                    >
-                      {event.description}
-                    </p>
-
-                    <button
-                      className="bg-[#980204] text-white rounded-full font-medium"
-                      style={{
-                        fontSize: "clamp(0.7rem, 1vw, 0.875rem)",
-                        padding:
-                          "clamp(0.35rem, 0.8vh, 0.5rem) clamp(1rem, 2vw, 1.25rem)",
-                      }}
-                    >
-                      Read More
-                    </button>
-                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 }

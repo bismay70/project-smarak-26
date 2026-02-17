@@ -16,6 +16,7 @@ const config: Config = {
             fontFamily: {
                 serif: ["var(--font-crimson)"],
                 saman: ["Saman", "serif"],
+                poppins: ["var(--font-poppins)"],
             },
             animation: {
                 marquee: "marquee 25s linear infinite",

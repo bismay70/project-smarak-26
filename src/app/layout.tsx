@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Crimson_Text } from "next/font/google";
+import { Inter, Crimson_Text, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 
-
-
 const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+    subsets: ["latin"],
+
+    variable: "--font-poppins",
+    weight: ["400"],
+});
 const crimson = Crimson_Text({
     subsets: ["latin"],
     weight: "400",
@@ -100,7 +104,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${crimson.variable} ${inter.className}`}>
+            <body
+                className={`${crimson.variable} ${inter.className} ${poppins.variable}`}
+            >
                 <Toaster />
                 <Navbar />
                 {children}

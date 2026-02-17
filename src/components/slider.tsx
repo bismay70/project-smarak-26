@@ -10,7 +10,7 @@ const slider = () => {
                         {[...Array(8)].map((_, i) => (
                             <span
                                 key={`first-${i}`}
-                                className="text-[#4a2c20] text-base sm:text-lg md:text-xl lg:text-3xl font-saman tracking-wider mx-4 sm:mx-8 md:mx-12"
+                                className="text-[#980204] text-base sm:text-lg md:text-xl lg:text-3xl font-saman tracking-wider mx-4 sm:mx-8 md:mx-12"
                             >
                                 Shaping Architecture Through Engineering Thought
                                 <span className="mx-4 sm:mx-8 md:mx-12 font-bold">
@@ -24,7 +24,7 @@ const slider = () => {
                         {[...Array(8)].map((_, i) => (
                             <span
                                 key={`second-${i}`}
-                                className="text-[#4a2c20] text-base sm:text-lg md:text-xl lg:text-3xl font-saman tracking-wider mx-4 sm:mx-8 md:mx-12"
+                                className="text-[#980204] text-base sm:text-lg md:text-xl lg:text-3xl font-saman tracking-wider mx-4 sm:mx-8 md:mx-12"
                             >
                                 fusing innovation with a greener tomorrow
                                 <span className="mx-4 sm:mx-8 md:mx-12 font-bold">

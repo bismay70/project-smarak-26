@@ -95,8 +95,8 @@ export default function Hero() {
                 <Image
                     src="/puri-2.png"
                     alt="Monument"
-                    width={500}
-                    height={500}
+                    width={2000}
+                    height={2000}
                     className="hidden llg:block absolute bottom-[3.8rem] h-[100dvh] w-full scale-100
                      object-contain object-bottom max-w-none"
                 />

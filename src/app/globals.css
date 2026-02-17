@@ -56,3 +56,10 @@ body {
 .animate-slow-spin {
     animation: slow-spin 40s linear infinite;
 }
+
+.backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}

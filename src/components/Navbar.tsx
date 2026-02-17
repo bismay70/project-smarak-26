@@ -14,7 +14,7 @@ const navLinks = [
     { href: "/#about", label: "About Us" },
     { href: "/events", label: "Events" },
     { href: "/#gallery", label: "Gallery" },
-    { href: "/teams", label: "Teams" },
+    // { href: "/team", label: "Team" },
     { href: "/#contact", label: "Contact Us" },
 ];
 
@@ -22,7 +22,7 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     function handleRegister() {
         if (isMenuOpen) setIsMenuOpen(false);
-        toast("Starting Soon..");
+        toast("✨ Registrations opening soon...");
         return;
     }
     return (
@@ -49,7 +49,7 @@ export default function Navbar() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="text-[#F5DEB3] hover:text-white transition-colors font-normal text-sm xl:text-base whitespace-nowrap"
+                                    className="text-[#f5b461] hover:text-white transition-colors font-normal text-sm xl:text-base whitespace-nowrap"
                                 >
                                     {link.label}
                                 </Link>
@@ -58,7 +58,7 @@ export default function Navbar() {
 
                         <div className={`hidden lg:block ${poppins.className}`}>
                             <button
-                                className="border-2 border-[#F5DEB3] text-[#F5DEB3] hover:bg-[#F5DEB3] hover:text-[#8B3333] px-5 xl:px-6 py-1.5 xl:py-2 rounded-full transition-all font-normal text-sm xl:text-base"
+                                className="border-2 border-[#f5b461] text-[#f5b461] hover:bg-[#f5b461] hover:text-[#8B3333] px-5 xl:px-6 py-1.5 xl:py-2 rounded-full transition-all font-normal text-sm xl:text-base"
                                 onClick={() => handleRegister()}
                             >
                                 Register Now
@@ -95,10 +95,10 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 <div
-                    className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                    className={`lg:hidden absolute left-0 right-0 top-full bg-[#980204] overflow-hidden transition-all duration-300 ease-in-out ${
                         isMenuOpen
                             ? "max-h-[500px] opacity-100"
-                            : "max-h-0 opacity-0"
+                            : "max-h-0 opacity-0 pointer-events-none"
                     }`}
                 >
                     <div
@@ -108,7 +108,7 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="block text-[#F5DEB3] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
+                                className="block text-[#f5b461] hover:bg-[#A64848] transition-all duration-200 font-normal py-3 px-4 mx-2 rounded-lg"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {link.label}
@@ -118,7 +118,7 @@ export default function Navbar() {
 
                     <div className="pt-2 px-2 pb-5">
                         <button
-                            className="block border-2 border-[#F5DEB3] text-[#F5DEB3] hover:bg-[#F5DEB3] hover:text-[#8B3333] px-6 py-2.5 rounded-full transition-all duration-200 font-normal text-center w-full"
+                            className="block border-2 border-[#f5b461] text-[#f5b461] hover:bg-[#f5b461] hover:text-[#8B3333] px-6 py-2.5 rounded-full transition-all duration-200 font-normal text-center w-full"
                             onClick={() => handleRegister()}
                         >
                             Register Now
