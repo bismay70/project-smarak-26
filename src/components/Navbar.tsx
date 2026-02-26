@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useState } from "react";
-import toast from "react-hot-toast";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -14,21 +13,25 @@ const navLinks = [
     { href: "/#about", label: "About Us" },
     { href: "/events", label: "Events" },
     { href: "/#gallery", label: "Gallery" },
-    // { href: "/team", label: "Team" },
     { href: "/#contact", label: "Contact Us" },
 ];
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const registerLink =
+        "https://unstop.com/o/kmwMtRS?lb=1gu3rEdf&utm_medium=Share&utm_source=competitions&utm_campaign=Smarakdg62719";
+
     function handleRegister() {
         if (isMenuOpen) setIsMenuOpen(false);
-        toast("✨ Registrations opening soon...");
-        return;
+        window.open(registerLink, "_blank", "noopener,noreferrer");
     }
+
     return (
         <nav className="bg-[#980204] sticky top-0 z-50">
             <div className="w-full px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-14 sm:h-16">
+                    
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center">
@@ -40,8 +43,10 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Right side: Navigation Links and Sign In Button */}
+                    {/* Right side */}
                     <div className="flex items-center gap-4 lg:gap-6">
+
+                        {/* Desktop Links */}
                         <div
                             className={`hidden lg:flex items-center space-x-6 xl:space-x-8 ${poppins.className}`}
                         >
@@ -56,16 +61,17 @@ export default function Navbar() {
                             ))}
                         </div>
 
+                        {/* Desktop Register Button */}
                         <div className={`hidden lg:block ${poppins.className}`}>
                             <button
+                                onClick={handleRegister}
                                 className="border-2 border-[#f5b461] text-[#f5b461] hover:bg-[#f5b461] hover:text-[#8B3333] px-5 xl:px-6 py-1.5 xl:py-2 rounded-full transition-all font-normal text-sm xl:text-base"
-                                onClick={() => handleRegister()}
                             >
                                 Register Now
                             </button>
                         </div>
 
-                        {/* Mobile menu button */}
+                        {/* Mobile Menu Button */}
                         <div className="lg:hidden">
                             <button
                                 type="button"
@@ -116,10 +122,11 @@ export default function Navbar() {
                         ))}
                     </div>
 
+                    {/* Mobile Register Button */}
                     <div className="pt-2 px-2 pb-5">
                         <button
+                            onClick={handleRegister}
                             className="block border-2 border-[#f5b461] text-[#f5b461] hover:bg-[#f5b461] hover:text-[#8B3333] px-6 py-2.5 rounded-full transition-all duration-200 font-normal text-center w-full"
-                            onClick={() => handleRegister()}
                         >
                             Register Now
                         </button>
