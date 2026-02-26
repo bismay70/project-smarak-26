@@ -3,23 +3,20 @@ import Image from "next/image";
 import Slider from "./slider";
 
 export default function Hero() {
+    const registerLink =
+        "https://unstop.com/o/kmwMtRS?lb=1gu3rEdf&utm_medium=Share&utm_source=competitions&utm_campaign=Smarakdg62719";
+
+    function handleRegister() {
+        window.open(registerLink, "_blank", "noopener,noreferrer");
+    }
+
     return (
         <>
             <div className="relative w-full min-h-[93svh] llg:min-h-[120svh] flex flex-col items-center justify-start overflow-hidden bg-[url('/images/bg.png')] bg-center ">
-                <div className="absolute inset-0 z-0">
-                    {/* <Image
-                        src="/images/bg.png"
-                        alt="Background Texture"
-                        fill
-                        className="object-cover object-center opacity-40 sm:opacity-100"
-                        priority
-                    /> */}
-                    {/* <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent sm:from-white/30" /> */}
-                </div>
 
                 <div className="relative z-20 flex flex-col items-center w-full px-4 pt-[10vh] md:pt-[2vh] llg:pt-[6vh]">
-                    {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#f6eee3] via-[#f6eee3]/90 to-transparent h-[120%]" /> */}
 
+                    {/* Logo */}
                     <div className="relative w-[60vw] sm:w-[40vw] lg:w-[25vw] mb-4 animate-fade-in-down">
                         <Image
                             src="/images/smarak.png"
@@ -31,12 +28,15 @@ export default function Hero() {
                         />
                     </div>
 
+                    {/* Tagline */}
                     <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-center text-[#980204] font-serif font-semibold tracking-wider max-w-3xl drop-shadow-sm">
                         &ldquo;Shaping Architecture Through Engineering
                         Thought&rdquo;
                     </p>
 
+                    {/* Date Section */}
                     <div className="relative flex flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-4xl py-6">
+
                         <div className="hidden sm:block w-20 md:w-32 lg:w-40 opacity-90 transition-transform hover:-translate-x-1 duration-300">
                             <Image
                                 src="/images/arrow-left.png"
@@ -47,11 +47,9 @@ export default function Hero() {
                             />
                         </div>
 
-                        <div className="relative">
-                            <p className="text-xl sm:text-2xl text-center text-[#980204] font-serif font-bold whitespace-nowrap drop-shadow-md">
-                                13 - 15 March 2026
-                            </p>
-                        </div>
+                        <p className="text-xl sm:text-2xl text-center text-[#980204] font-serif font-bold whitespace-nowrap drop-shadow-md">
+                            13 - 15 March 2026
+                        </p>
 
                         <div className="hidden sm:block w-20 md:w-32 lg:w-40 opacity-90 transition-transform hover:translate-x-1 duration-300">
                             <Image
@@ -63,8 +61,28 @@ export default function Hero() {
                             />
                         </div>
                     </div>
+
+                    {/* 🔥 NEW REGISTER BUTTON (Hero Section) */}
+                    <div className="mt-2 sm:mt-4">
+                        <button
+                            onClick={handleRegister}
+                            className="border-2 border-[#980204] text-[#980204] 
+                                       hover:bg-[#980204] hover:text-white
+                                       px-8 sm:px-10 py-2.5 sm:py-3
+                                       rounded-full 
+                                       text-sm sm:text-base md:text-lg
+                                       font-semibold tracking-wide
+                                       transition-all duration-300
+                                       shadow-md hover:shadow-xl
+                                       hover:scale-105"
+                        >
+                            Register Now
+                        </button>
+                    </div>
+
                 </div>
 
+                {/* Monument (mobile) */}
                 <div className="absolute bottom-0 z-10 w-full h-[50vh] md:h-[65vh] pointer-events-none llg:hidden">
                     <Image
                         src="/images/monu.png"
@@ -75,6 +93,7 @@ export default function Hero() {
                     />
                 </div>
 
+                {/* Rotating radial bg */}
                 <div className="absolute -bottom-[10rem] llg:-bottom-[15rem] -z-5 scale-150 animate-slow-spin origin-center">
                     <Image
                         src="/bg-rad.png"
@@ -92,13 +111,13 @@ export default function Hero() {
                     />
                 </div>
 
+                {/* Desktop Monument */}
                 <Image
                     src="/puri-2.png"
                     alt="Monument"
                     width={2000}
                     height={2000}
-                    className="hidden llg:block absolute bottom-[3.8rem] h-[100dvh] w-full scale-100
-                     object-contain object-bottom max-w-none"
+                    className="hidden llg:block absolute bottom-[3.8rem] h-[100dvh] w-full scale-100 object-contain object-bottom max-w-none"
                 />
 
                 <div className="absolute bottom-0 w-full z-30">
