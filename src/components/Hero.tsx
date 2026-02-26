@@ -1,21 +1,13 @@
 "use client";
 import Image from "next/image";
 import Slider from "./slider";
+import { handleRegister } from "@/config";
 
 export default function Hero() {
-    const registerLink =
-        "https://unstop.com/o/kmwMtRS?lb=1gu3rEdf&utm_medium=Share&utm_source=competitions&utm_campaign=Smarakdg62719";
-
-    function handleRegister() {
-        window.open(registerLink, "_blank", "noopener,noreferrer");
-    }
-
     return (
         <>
             <div className="relative w-full min-h-[93svh] llg:min-h-[120svh] flex flex-col items-center justify-start overflow-hidden bg-[url('/images/bg.png')] bg-center ">
-
                 <div className="relative z-20 flex flex-col items-center w-full px-4 pt-[10vh] md:pt-[2vh] llg:pt-[6vh]">
-
                     {/* Logo */}
                     <div className="relative w-[60vw] sm:w-[40vw] lg:w-[25vw] mb-4 animate-fade-in-down">
                         <Image
@@ -36,7 +28,6 @@ export default function Hero() {
 
                     {/* Date Section */}
                     <div className="relative flex flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-4xl py-6">
-
                         <div className="hidden sm:block w-20 md:w-32 lg:w-40 opacity-90 transition-transform hover:-translate-x-1 duration-300">
                             <Image
                                 src="/images/arrow-left.png"
@@ -62,24 +53,22 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* 🔥 NEW REGISTER BUTTON (Hero Section) */}
-                    <div className="mt-2 sm:mt-4">
+                    <div className="">
                         <button
                             onClick={handleRegister}
-                            className="border-2 border-[#980204] text-[#980204] 
-                                       hover:bg-[#980204] hover:text-white
-                                       px-8 sm:px-10 py-2.5 sm:py-3
+                            className="border-2 border-[#980204] hover:text-[#980204] 
+                                       bg-[#980204] text-white hover:bg-[#f5ebdd]
+                                       px-8 sm:px-10 py-2.5 sm:py-3 font-serif
                                        rounded-full 
-                                       text-sm sm:text-base md:text-lg
-                                       font-semibold tracking-wide
+                                       text-base sm:text-lg md:text-xl
+                                       font-normal tracking-wide
                                        transition-all duration-300
-                                       shadow-md hover:shadow-xl
+                                       shadow-3xl drop-shadow-2xl
                                        hover:scale-105"
                         >
                             Register Now
                         </button>
                     </div>
-
                 </div>
 
                 {/* Monument (mobile) */}
